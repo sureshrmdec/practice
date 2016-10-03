@@ -1,0 +1,64 @@
+1. TopCoder Div1 -1 and Div2-3 Problems
+	Div1 Level 1 - 50 Problems
+	Div2 Level 3 - 50 Problems
+2. GeeksforGeeks Data Structure Problems
+    1. Tree
+    	Binary Tree
+    	Binary Search Tree
+    	Trie
+    	Suffix Tree - Important
+    	Segement Trees	
+    2. Heap
+    3. LinkedList
+    	Queue,CircularQueue
+    4. String Processing (Rabin Karp Algo)
+    5. Graphs
+   	6. Dynamic Programming
+   	7. Hashing
+   		   	Rolling Hash Method(DNA sequence, find duplicate of length 10)
+   			(http://www.ideserve.co.in/learn/find-10-letter-repeated-DNA-sequences)
+   	8. Sorting and Searching
+   		  External Sorting
+   		  Counting Sort
+   		  External Merge Sort
+   		  QuickSelect - To find kth smallest/largest/median
+   9. Bit manipulation
+   		1. http://www.geeksforgeeks.org/add-1-to-a-given-number/ (Notice how bits flipped upto first zero bit when we add 1 to given number)
+	  
+3. InterviewBit   	
+4. Books
+    1. Cracking the Code
+    2. Introduction to Design and Analysis of Algorithms
+    3. The Algorithm Design Manual
+    4. Cormen
+5. SPOJ 150 Problems : Tags with Binary Search, Hashing, Queues, Bit Manipulation, Graphs
+6. Participating in Codechef   
+7. Operating Systems Interview questions
+	1. operating systems (thread vs process, synchronization, deadlock etc), computer networks
+	   (IP packet, IP addressing, routing, TCP packet, protocol - sliding window, three way 
+	   handshake, congestion control, man in the middle attack, TCP vs UDP, HTTP - pipelining, 
+	   GET vs POST) 
+8. Database Questions
+	1. Convert multiple rows into comma seprated i.e. xmlagg function
+		http://stackoverflow.com/questions/11104896/sql-multiple-select-query-with-xmlagg-function-data-not-pulled-in-the-required
+	2. row() rank() denserank() ,hierarichal queries, LISTAGG(), anaytics functions		
+	3. https://docs.oracle.com/database/121/TGSQL/tgsql_join.htm#TGSQL95320 (Database SQL Tuning Guide)
+	4. http://docs.oracle.com/cd/B19306_01/server.102/b14211/hintsref.htm#i8327 (Database Performance Tuning Guide)
+		https://docs.oracle.com/database/121/nav/portal_4.htm
+	5. JOINS
+	6. B Trees Indexes,
+	7. SQL Interview Questions
+9. Java
+    1. Generics
+    2. Threading
+    3. Collections Framework
+    
+10 Big Data
+	Google Big Table
+	1. Map Reduce
+	2. HDFS
+	3. Cassandra
+	4. Spark   
+    
+      
+    

@@ -1,0 +1,82 @@
+1. In Kanade's Algo for finding Max Sum in Contiguous Array (Arrays_MaxSumContiguousSubarray class), look for method maxSubArrayKadaneIndexes
+   to find start and end indexes. 
+2. Find additional/missing character ...XOR it
+3. Check boundires before assigning the row and columns...see Arrays_SpiralOrderMatrixII and Arrays_AntiDiagonals
+4. We all know that, merge, heap or quick sorting algorithm can achieve no better than O(n Log n) time complexity.  
+	But for linear time requirement, bucket sort, counting sort and radix sort are often good options.
+	See Problem Arrays_MaximumConsectiveGap
+5. Because any correct sorting algorithm must be able to produce each permutation of its input, each of the n! 
+	permutations on n elements must appear as one of the leaves of the decision tree for a comparison sort to be correct.
+	The length of the longest simple path from the root of a decision tree to any of its reachable leaves represents the worst-case number 
+	of comparisons that the cor- responding sorting algorithm performs.	(Excerpt from Cormen)
+	
+	Theorem 8.1
+	Any comparison sort algorithm requires 􏰂.n lg n/ comparisons in the worst case.
+6.  Moore's voting algorithm.
+    http://www.geeksforgeeks.org/given-an-array-of-of-size-n-finds-all-the-elements-that-appear-more-than-nk-times/
+    
+7.  Arrays_N3RepeatNumber... Very good problem..related to number 6
+8. To find if number is prime or to find the factors of a number, just loop till <=Math.sqrt(number).
+	See problems Maths_AllFactors.java and TimeComplexityPrimeNumberCheck classes
+	
+9. Given an even number ( greater than 2 ), return two prime numbers whose sum will be equal to given number.	
+10. Given a number as 
+ 	A = B + C * N if ( B, C < N ) then A % N = B ,A / N = C 
+ 	
+11.  Euclidean method: O(sqrt(nlogn)) GCD 
+
+12. Why Merge Sort is used instead of Quick Sort in Java? 
+
+	I did write these methods, so I suppose I'm qualified to answer. It is true that there is no single best sorting algorithm. 
+	QuickSort has two major deficiencies when compared to mergesort:
+
+	1. It's not stable (as parsifal noted).
+	2. It doesn't guarantee n log n performance; it can degrade to quadratic performance on pathological inputs.
+	
+	Stability is a non-issue for primitive types, as there is no notion of identity as distinct from (value) equality. 
+	And the possibility of quadratic behavior was deemed not to be a problem in practice for Bentely and 
+	McIlroy's implementation (or subsequently for Dual Pivot Quicksort), which is why these QuickSort variants were used for the primitive sorts.
+
+	Stability is a big deal when sorting arbitrary objects. For example, suppose you have objects representing email messages, 
+	and you sort them first by date, then by sender. You expect them to be sorted by date within each sender, 
+	but that will only be true if the sort is stable. That's why we elected to provide a stable sort (Merge Sort) to sort object references.
+	(Techincally speaking, multiple sequential stable sorts result in a lexicographic ordering on the keys in the reverse order of the sorts: 
+	the final sort determines the most significant subkey.)	
+	
+	http://stackoverflow.com/questions/13498213/quicksort-alogorithm-stability
+	
+13. https://www.quora.com/If-I-am-to-sort-over-100-million-objects-in-ACVS-file-and-memory-is-only-1GB-what-will-be-the-most-efficient-way-to-do-it-How-do-I-approach-the-coding-What-existing-algorithm-or-method
+
+14. My SQL uses Boyer-Moore algorithm  for queries such as LIKE '%off%'.
+
+15. http://www.geeksforgeeks.org/add-1-to-a-given-number/ (Notice how bits flipped upto first zero bit when we add 1 to given number)
+   			For eg 23 (10111) + 1 = 24 (11000), 19(10011) + 1 = 20(10100), 8(1000) + 1 = 1001
+
+16. implement LRU Cache, Auto Complete System
+17. Google Spelling Corrector (http://raelcunha.com/spell-correct/ , http://norvig.com/spell-correct.html)
+18 . justified text : https://www.interviewbit.com/problems/justified-text/
+
+19. BigInteger Implementation Understanding:
+
+			BigInteger bi = new BigInteger("10000000000");
+			byte[] ba = bi.toByteArray();
+			bi.add(BigInteger.ONE);
+	BigIntger has two variables defined in the class i.e. 
+		1	final int signum;
+		2	final int[] mag;
+		
+		signnum stores the -1 for negative, 0 for zero, or 1 for positive
+		mag[] stores all the fun things. each element of mag stores the 4 bytes int big endian representation. Negatives will be stored as twos
+			complement form. Wait I will show the example below.
+			FOr eg above String 10000000000 is represented in binary as follows:
+				1001010100000010111110010000000000. I did this using http://www.binaryhexconverter.com/decimal-to-binary-converter.
+				mag will store [2, 1410065408]. How this comes up will be shown below:
+				10 01010100000010111110010000000000
+				2	1410065408
+				
+				Also if you do bi.toByteArray();, you will get [2, 84, 11, -28, 0]. This means above BigInteger has 5 bytes.
+				10 01010100 00001011 11100100 00000000
+				2     84       11       -28      0
+				
+				
+	

@@ -1,0 +1,31 @@
+ Facebook
+ 
+ 1. Given an array of integers, find the length of the longest sub-sequence such that elements in the subsequence are consecutive integers  (DP)
+ 2. Given a string 'alphabet' and a string 'codex' find the   shortest substring in codex that contains all characters in alphabet. 
+ 3. Print all the paths of a binary tree 
+ 4. Giving a array which has zero and no-zero elements, move all zero elements to the end and no-zero elements to the begin. 
+ 5. Coding - from list of strings, generate list of list of strings which are anagrams of each other.
+ 6. Given an array of numbers and an integer, write code that checks if there are contiguous entries in the array that add up to that integer.
+ 7. Given an array with numbers, sort it such that all non-zeros are at the beginning of the array.
+ 8. System Design: Design Netflix-like streaming service
+ 9. Implement code that finds the best schedule for tasks with different duration that depend on each other.
+ 10. A person is considered a celebrity is he/she likes nobody AND everybody likes him/her. Given a set of n people and a function like(i,j), which returns true if i likes j and false otherwise, write code to find all celebrities.
+ 11. Find Kth minimum node in a binary tree and suggest a complexity
+ 12. Divided without divide  
+ 13. Given an array of integers, find the maximum number that can be reached by summing the best possible consecutive subsequence of the array. 
+ 14. Given a 1TB file of serialized 4 byte integers, and 2GB of ram, sort the integers into a resulting 1TB file. My interviewer was very 
+ 		collaborative in entertaining various solution ideas until we came up with a combo that would work performantly and reduce 
+ 		the number of passes over the 1TB file and intermediate files. 
+ 15. Given an array of integers, find the maximum number that can be reached by summing the best possible consecutive subsequence of the array.  
+ 16. 3SUM
+ 17. Intervals intersection, palindrome, BST to linked list conversion.
+ 18 1) Print Max element of a given list
+	2) Print median of a given list
+	3) Print the first nonrecurring element in a list
+	4) Print the most recurring element in a list
+	5) Greatest common Factor
+ 
+ UBER
+ 
+ 1. what are you most proud of
+ 2. http://ringpop.readthedocs.io/en/latest/getting_started.html 		
