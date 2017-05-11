@@ -9,93 +9,90 @@ public class Arrays_MergeIntervals {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		Arrays_MergeIntervals a = new Arrays_MergeIntervals();
-		Arrays_MergeIntervals.Interval ai1 = a. new Interval(3,5);
+		Arrays_MergeIntervals.Interval ai1 = a. new Interval(1,2);
+		Arrays_MergeIntervals.Interval ai2 = a. new Interval(3,6);
 		//Arrays_MergeIntervals.Interval ai2 = a. new Interval(3,5);
-		//Arrays_MergeIntervals.Interval ai3 = a. new Interval(6,7);
+		Arrays_MergeIntervals.Interval ai3 = a. new Interval(6,7);
 		Arrays_MergeIntervals.Interval ai4 = a. new Interval(8,10);
-		//Arrays_MergeIntervals.Interval ai5 = a. new Interval(12,16);
+		Arrays_MergeIntervals.Interval ai5 = a. new Interval(12,16);
 		ArrayList<Interval> intervals = new ArrayList<>();
 		intervals.add(ai1);
-		//intervals.add(ai2);
-		//intervals.add(ai3);
+		intervals.add(ai2);
+		intervals.add(ai3);
 		intervals.add(ai4);
-		//intervals.add(ai5);
-		Arrays_MergeIntervals.Interval newInterval = a. new Interval(1,12);
+		intervals.add(ai5);
+		Arrays_MergeIntervals.Interval newInterval = a. new Interval(10,8);
 		a.insert(intervals, newInterval);
-		
-		
+
+
 	}
+	//Did this second time....during revision
 	public ArrayList<Arrays_MergeIntervals.Interval> insert(ArrayList<Arrays_MergeIntervals.Interval> intervals, Arrays_MergeIntervals.Interval newInterval) {
-		
-		ArrayList<Interval> r = new ArrayList<>();
+		ArrayList<Arrays_MergeIntervals.Interval> result = new ArrayList<>();
 		if(intervals.isEmpty()){
-			r.add(newInterval);
-			return r;
+			result.add(newInterval);
+			return result;
 		}
-		int newS = -1;
-		int newE = -1;
-		boolean merged = false;
+		int newStart = Math.min(newInterval.start, newInterval.end);
+		int newEnd = Math.max(newInterval.start, newInterval.end);
+		newInterval.start = newStart;
+		newInterval.end = newEnd;
+		boolean inserted = false;
+		Interval merged = null;
 		for(int i=0;i<intervals.size();i++){
-			boolean ShouldAdded = true;
 			Interval ci = intervals.get(i);
-			if(ci.start <= newInterval.start &&  ci.end >= newInterval.start){
-				newS = ci.start;
-				ShouldAdded = false;
-				continue;
+			if(overlapped(ci,newInterval)){
+				if(merged == null){
+					merged = new Interval();
+					merged.start = Math.min(ci.start, newInterval.start);
+					merged.end = Math.max(ci.end, newInterval.end);
+					result.add(merged);
+				}else{
+					//This means we have already merged and looking for next interval if it can be merged with the last one...so removing and adding
+					merged = result.get(result.size()-1);
+					merged.start = Math.min(ci.start, merged.start);
+					merged.end = Math.max(ci.end, merged.end);
+					result.remove(result.size()-1);
+					result.add(merged);	
+				}
+				inserted = true;
+			}else{
+				if(newInterval.end<=ci.start && !inserted){
+					result.add(newInterval);
+					inserted = true;
+				}
+					
+				result.add(ci);
 			}
-			if(newS!=-1){
-
-				if(ci.start < newInterval.end && ci.end < newInterval.end && newE==-1){
-					continue;
-				}
-				if(ci.start >= newInterval.end && ci.end >= newInterval.end && newE==-1){
-					newE = newInterval.end;
-					r.add(new Interval(newS,newE));
-					ShouldAdded = true;
-					merged=true;
-				}
-				if(ci.start <= newInterval.end && ci.end >= newInterval.end){
-					newE = ci.end;
-					r.add(new Interval(newS,newE));
-					ShouldAdded = false;
-					merged=true;
-				}
-			}
-			if(ShouldAdded){
-				r.add(ci);
-				
-			}
-			
-		}
-		if(!merged){
-			r.add(newInterval);
-			Collections.sort(r, new Comparator<Interval>(){
-
-				@Override
-				public int compare(Interval o1, Interval o2) {
-					if(o1.start > o2.start){
-						return 1;
-					}else if(o1.start < o2.start){
-						return -1;
-					}
-					return 0;
-				}
-				
-			});
 		}
 
-		return r;
-    }
-	  class Interval {
-		      int start;
-		      int end;
-		      Interval() { 
-		    	  start = 0; end = 0; 
-		    	  }
-		      
-		      Interval(int s, int e) { 
-		    	  start = s; end = e; 
-		    }
-	 }   
-		 
+		if(merged ==null && !inserted){
+			//To check if new Interval should be put at the end.
+				result.add(newInterval);
+		}
+
+		return result;
+	}
+	private boolean overlapped(Interval ci, Interval newInterval) {
+		//a---------b            a------------b  a-----------b     a----b
+		//		a1------b1   a1-------b1			a1---b1     a1---------b1
+		if(newInterval.start<= ci.end && newInterval.end>=ci.start){
+			return true;
+		}
+
+		return false;
+	}
+	
+	class Interval {
+		int start;
+		int end;
+		Interval() { 
+			start = 0; end = 0; 
+		}
+
+		Interval(int s, int e) { 
+			start = s; end = e; 
+		}
+	}   
+
 }

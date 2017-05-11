@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+//BackTracking_CombinationSumRevisited is more clear
 public class BackTracking_CombinationSum {
 
 	public static void main(String[] args) {

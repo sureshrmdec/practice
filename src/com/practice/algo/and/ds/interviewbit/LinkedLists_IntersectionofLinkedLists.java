@@ -3,12 +3,38 @@ package com.practice.algo.and.ds.interviewbit;
 import java.util.HashSet;
 import java.util.Set;
 
-import com.practice.algo.and.ds.interviewbit.LinkedLists_PalindromeList.ListNode;
+
 
 public class LinkedLists_IntersectionofLinkedLists {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		LinkedLists_IntersectionofLinkedLists intList = new LinkedLists_IntersectionofLinkedLists();
+		ListNode a = new ListNode(0);
+		ListNode a1 = new ListNode(1);
+		ListNode a2 = new ListNode(2);
+		ListNode a3 = new ListNode(3);
+		ListNode a4 = new ListNode(4);
+		ListNode a5 = new ListNode(5);
+		ListNode a6 = new ListNode(6);
+
+		ListNode b1 = new ListNode(3);
+		ListNode b2 = new ListNode(4);
+		ListNode b3 = new ListNode(5);
+		ListNode b4 = new ListNode(6);
+
+		
+		a.next = a1;
+		a1.next = a2;
+		a2.next = a3;
+		a3.next = a4;
+		a4.next = a5;
+		a5.next = a6;
+		
+		b1.next = b2;
+		b2.next = b3;
+		//b3.next = b4;
+		//b3.next = a4;
+		System.out.println(intList.getIntersectionNodeLeetCode(a, b1));
 
 	}
 	public ListNode getIntersectionNode(ListNode a, ListNode b) {
@@ -54,7 +80,24 @@ public class LinkedLists_IntersectionofLinkedLists {
 		
 		return null;
 	}
-	class ListNode {
+	
+	public ListNode getIntersectionNodeLeetCode(ListNode headA, ListNode headB) {
+	    //boundary check
+	    if(headA == null || headB == null) return null;
+	    
+	    ListNode a = headA;
+	    ListNode b = headB;
+	    
+	    //if a & b have different len, then we will stop the loop after second iteration
+	    while( a != b){
+	    	//for the end of first iteration, we just reset the pointer to the head of another linkedlist
+	        a = a == null? headB : a.next;
+	        b = b == null? headA : b.next;    
+	    }
+	    
+	    return a;
+	}
+	static class ListNode {
 		   public int val;
 		      public ListNode next;
 		      ListNode(int x) { 

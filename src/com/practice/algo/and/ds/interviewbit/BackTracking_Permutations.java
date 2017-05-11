@@ -13,6 +13,8 @@ public class BackTracking_Permutations {
 		nums.add(1);
 		nums.add(2);
 		nums.add(3);
+		//nums.add(4);
+		//nums.add(5);
 		o.permute(nums);
 	}
 	public ArrayList<ArrayList<Integer>> permute(ArrayList<Integer> nums) {
@@ -54,6 +56,7 @@ public class BackTracking_Permutations {
 			swap(i,j,nums);
 			permute(result,nums,j+1,soFar);
 			soFar.remove(soFar.size()-1);
+			//unswap it to retain the order
 			swap(j,i,nums);
 		}		
 

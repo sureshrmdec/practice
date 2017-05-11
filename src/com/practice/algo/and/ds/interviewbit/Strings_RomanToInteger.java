@@ -21,16 +21,10 @@ public class Strings_RomanToInteger {
 		Strings_RomanToInteger o = new Strings_RomanToInteger();
 		System.out.println(o.romanToInt("MMMCMXCIX"));
 	}
+	static HashMap<Character,Integer> map = new HashMap<Character,Integer>();
 	public int romanToInt(String a) {
 		int r =0;
-		HashMap<Character,Integer> map = new HashMap<Character,Integer>();
-		map.put('I', 1);
-		map.put('V', 5);
-		map.put('X', 10);
-		map.put('L', 50);
-		map.put('C', 100);
-		map.put('D', 500);
-		map.put('M', 1000);
+	
 		
 		int prev = map.get(a.charAt(0));
 		r+=prev;
@@ -45,5 +39,16 @@ public class Strings_RomanToInteger {
 			prev = curr;
 		}
 		return r;
+	}
+	static {
+		
+		map.put('I', 1);
+		map.put('V', 5);
+		map.put('X', 10);
+		map.put('L', 50);
+		map.put('C', 100);
+		map.put('D', 500);
+		map.put('M', 1000);
+		
 	}
 }

@@ -19,8 +19,8 @@ public class Arrays_MaxSumContiguousSubarray {
 		
 		
 		Arrays_MaxSumContiguousSubarray s = new Arrays_MaxSumContiguousSubarray();
-		//Integer aa[] = {-1,-2};
-		Integer aa[] ={-2,1,-3,4,-1,2,1,-5,4};
+		Integer aa[] = {-1,-2};
+		//Integer aa[] ={-2,1,-3,4,-1,2,1,-5,4};
 		//0111000100010 
 		List<Integer> a = Arrays.asList(aa);
 		System.out.println(s.maxSubArray(a));

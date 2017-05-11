@@ -6,15 +6,18 @@ public class ReverseaNumber {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		int input = 54321;
-		int reversedNum = 0;
-		while (input != 0) {
-		    reversedNum = reversedNum * 10 + input % 10;
-		    input = input / 10;   
-		}
-		
-		System.out.println(reversedNum);
-	}
 
+	}
+	public int reverse(int a) {
+
+		int reversedNum = 0;
+		while (a != 0) {
+			if (reversedNum != 0 && Integer.MAX_VALUE / reversedNum < 10
+					&& Integer.MAX_VALUE / reversedNum > -10)
+				return 0;
+			reversedNum = reversedNum * 10 + a % 10;
+			a = a / 10;   
+		}
+		return reversedNum;
+	}
 }

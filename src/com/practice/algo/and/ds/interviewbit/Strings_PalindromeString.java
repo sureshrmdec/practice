@@ -7,36 +7,28 @@ public class Strings_PalindromeString {
 		Strings_PalindromeString sp = new Strings_PalindromeString();
 		System.out.println(sp.isPalindrome("''"));
 	}
-	public int isPalindrome(String a) {
-		a = a.toLowerCase();
-
-		int i=0;
-		int j = a.length()-1;
-		while(i<=j){
-			boolean ia = true;
-			while(ia && i<=a.length()-1)
-					if(!(a.charAt(i)-0>=48 && a.charAt(i)-0<=57 || (a.charAt(i)-0>=97 && a.charAt(i)-0<=122))){
-						i++;
-					}else{
-						ia=false;
-
-					}
-			boolean ja = true;
-			while(ja && j>=0)
-					if(!(a.charAt(j)-0>=48 && a.charAt(j)-0<=57 || (a.charAt(j)-0>=97 && a.charAt(j)-0<=122))){
-						j--;
-					}else{
-						ja=false;
-
-					}
-			if(i<=j)
-			if(a.charAt(i)!=a.charAt(j)){
-				return 0;
-			}
-			i++;
-			j--;
-		}
-		
-		return 1;
-	}
+	public boolean isPalindrome(String s) {
+        if (s.isEmpty()) {
+        	return true;
+        }
+        int head = 0, tail = s.length() - 1;
+        char cHead, cTail;
+        while(head <= tail) {
+        	cHead = s.charAt(head);
+        	cTail = s.charAt(tail);
+        	if (!Character.isLetterOrDigit(cHead)) {
+        		head++;
+        	} else if(!Character.isLetterOrDigit(cTail)) {
+        		tail--;
+        	} else {
+        		if (Character.toLowerCase(cHead) != Character.toLowerCase(cTail)) {
+        			return false;
+        		}
+        		head++;
+        		tail--;
+        	}
+        }
+        
+        return true;
+    }
 }

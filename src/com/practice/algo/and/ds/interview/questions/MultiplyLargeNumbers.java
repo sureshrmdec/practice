@@ -1,77 +1,43 @@
-/*package com.practice.algo.and.ds.interview.questions;
+package com.practice.algo.and.ds.interview.questions;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class MultiplyLargeNumbers {
-
-	//  0 1 2
-	//  2 3 4 num1
-	//    1 5 num2
-	//1 1 7 0 temp1
-	2 3 4   temp2
-
-	1 1 7 0 result
-	3 5 1 0 result
-
-
-	List<Integer>  multiply ( List<Integer> num1, List<Integer> num2 )  {
-
-
-		if(num1.size()>num2.size()){
-			multiple2(num1,num2);    
-		}else{
-			multiple2(num2,num1);    
-		}
+public class MultiplyLargeNumbers {	
+	
+	
+	
+	//http://www.programcreek.com/2014/05/leetcode-multiply-strings-java/
+	public String multiplyLeetCode(String num1, String num2) {
+	    String n1 = new StringBuilder(num1).reverse().toString();
+	    String n2 = new StringBuilder(num2).reverse().toString();
+	 
+	    int[] d = new int[num1.length()+num2.length()];
+	 
+	    //multiply each digit and sum at the corresponding positions
+	    for(int i=0; i<n1.length(); i++){
+	        for(int j=0; j<n2.length(); j++){
+	            d[i+j] += (n1.charAt(i)-'0') * (n2.charAt(j)-'0');
+	        }
+	    }
+	 
+	    StringBuilder sb = new StringBuilder();
+	 
+	    //calculate each digit
+	    for(int i=0; i<d.length; i++){
+	        int mod = d[i]%10;
+	        int carry = d[i]/10;
+	        if(i+1<d.length){
+	            d[i+1] += carry;
+	        }
+	        sb.insert(0, mod);
+	    }
+	 
+	    //remove front 0's
+	    while(sb.charAt(0) == '0' && sb.length()> 1){
+	        sb.deleteCharAt(0);
+	    }
+	 
+	    return sb.toString();
 	}
-	List<Integer>  multiply2 ( List<Integer> num1, List<Integer> num2 )  {
-		List<Integer> temp = new ArrayList<Integer>();
-		List<Integer> result = new ArrayList<Integer>();
-
-		for(int i=num2.size()-1;i>=0;i--){
-
-			int a = num2.get(i);
-			boolean c = false;
-			int carry = 0;
-			for(int j=num1.size()-1;j>=0;j--){ 
-
-				temp = new ArrayList<Integer>();
-				int remain = 0
-						int b = num1.get(j);
-				Integer res = a*b;
-				res +=carry;
-				if(res>9){
-
-					String s = Integer.toString(res);
-					carry = Integer.parseInt(s.subString(0,s.length());
-					remain = Integer.parseInt(s.subString(s.length(),s.length()+1);
-					temp.addFirst(remain);    
-
-				}
-
-
-			}
-			copyTempToresult(temp,result); 
-		}
-		return result;
-	}
-
-	private void copyTempToresult(List<Integer> temp, List<Integer> result ){
-		int i=0;
-
-		while(i<=temp.size() || i<= result.size()){
-			temp.get(i);
-			result.get(i);
-
-			// carry logic
-			i++;
-
-		}
-
-
-
-
-	}
-
 }
-*/

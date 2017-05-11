@@ -5,7 +5,7 @@ import com.practice.algo.and.ds.LinkedLists.Node;
 
 public class MakeBSTFromSortedLinkedList {
 
-	private static com.practice.algo.and.ds.LinkedLists.Node head;
+	private static com.practice.algo.and.ds.LinkedLists.Node<Integer> head;
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -28,7 +28,7 @@ public class MakeBSTFromSortedLinkedList {
 	}
 
 
-	private com.practice.algo.and.ds.Tree.Node makeBSTFromSortedList(Node head, int n) {
+	private com.practice.algo.and.ds.Tree.Node makeBSTFromSortedList(Node<Integer> head, int n) {
 		/* Base Case */
 	    if (n <= 0)
 	        return null;

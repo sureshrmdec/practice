@@ -13,3 +13,20 @@
 			
 			Above code is from DP_CoinsInALine problem.
 			(http://wlcoding.blogspot.com/2015/03/coins-in-line.html)
+			
+			
+2.  Left Right Problems
+	a. Product of Array Except Self : https://leetcode.com/problems/product-of-array-except-self/?tab=Description
+	b. Rain Water Trap
+	c. Max Distance In Arrays
+	d. Maximum Unsorted Subarray (interview bit)
+	
+3. Window
+	1. Hashing_WindowString (Interview Bit ) ADOBEBANC
+	2. 	String searching....(keep maintaing hash character wise)
+	
+Arrays
+1. Left Right Scan
+2. find min max
+3. swap
+4. hashing				

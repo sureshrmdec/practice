@@ -4,7 +4,7 @@ public class Strings_LongestPalindromicSubString {
 
 	public static void main(String[] args) {
 		Strings_LongestPalindromicSubString i = new Strings_LongestPalindromicSubString();
-		System.out.println(i.longestPalindrome("aaaabaaa"));
+		System.out.println(i.longestPalindrome("AABCDCBA"));
 
 	}
 	public String longestPalindrome(String a) {

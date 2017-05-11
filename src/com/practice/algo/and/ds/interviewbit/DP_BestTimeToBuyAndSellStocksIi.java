@@ -4,7 +4,7 @@ public class DP_BestTimeToBuyAndSellStocksIi {
 
 	public static void main(String[] args) {
 		DP_BestTimeToBuyAndSellStocksIi o = new DP_BestTimeToBuyAndSellStocksIi();
-		int[] prices = {1,2,3};
+		int[] prices = {1,2,3,1,5};
 		System.out.println(o.maxProfit(prices));
 
 	}

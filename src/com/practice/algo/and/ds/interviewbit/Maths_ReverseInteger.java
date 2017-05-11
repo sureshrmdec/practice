@@ -9,38 +9,22 @@ public class Maths_ReverseInteger {
 		Maths_ReverseInteger m = new Maths_ReverseInteger();
 		System.out.println(m.reverse(-1146467285));//-1146467285
 	}
-	public int reverse(int a) {
-		if(a>=0 && a<=9){
-			return a;
-		}
-		BigInteger m =BigInteger.ONE;
-		boolean isNeg = false;
-		if(a<0){
-			isNeg = true;
-		}
-		a = Math.abs(a);
-		while(m.compareTo(BigInteger.valueOf(a))!=1){
-			m = m.multiply(BigInteger.TEN);
+	
+	//https://discuss.leetcode.com/topic/6104/my-accepted-15-lines-of-code-for-java
+	public int reverse(int x)
+	{
+	    int result = 0;
 
-	}
-		m = m.divide(BigInteger.TEN);
-		
-		//m = m.divide(BigInteger.TEN);
-		BigInteger mul = BigInteger.ONE;
-		int res = 0;
-		boolean overflow = false;
-		while(a!=0){
-			int b=a/m.intValue();
-			res+=b*mul.intValue();
-			a= a%m.intValue();
-			m = m.divide(BigInteger.TEN);
-			mul = mul.multiply(BigInteger.TEN);
-		}
-		if(overflow)
-			return 0;
-		if(isNeg){
-			return 0-res;
-		}
-		return res;
+	    while (x != 0)
+	    {
+	        int tail = x % 10;
+	        int newResult = result * 10 + tail;
+	        if ((newResult - tail) / 10 != result)
+	        { return 0; }
+	        result = newResult;
+	        x = x / 10;
+	    }
+
+	    return result;
 	}
 }

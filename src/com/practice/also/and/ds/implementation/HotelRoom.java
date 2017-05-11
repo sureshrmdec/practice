@@ -2,7 +2,6 @@ package com.practice.also.and.ds.implementation;
 
 import java.util.Comparator;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Map;
 import java.util.PriorityQueue;
 import java.util.Queue;
@@ -34,8 +33,8 @@ public class HotelRoom{
 		HotelRoom one1 = new HotelRoom("S1",50.0f,Occupancy.ONE);
 		HotelRoom one2 = new HotelRoom("S2",30.0f,Occupancy.ONE);
 		HotelRoom one3 = new HotelRoom("S3",30.0f,Occupancy.ONE);
-		//HotelRoom two1 = new HotelRoom("D1",40.0f,Occupancy.TWO);
-		//HotelRoom two2 = new HotelRoom("D2",60.0f,Occupancy.TWO);
+		HotelRoom two1 = new HotelRoom("D1",40.0f,Occupancy.TWO);
+		HotelRoom two2 = new HotelRoom("D2",60.0f,Occupancy.TWO);
 		HotelRoom three1 = new HotelRoom("TH1",180.0f,Occupancy.THREE);
 		HotelRoom three2 = new HotelRoom("TH2",100.0f,Occupancy.THREE);
 		HotelRoom quad1 = new HotelRoom("Q1",900.0f,Occupancy.FOUR);
@@ -61,8 +60,8 @@ public class HotelRoom{
 					}
 
 				});
-		//priority2.offer(two1);
-		//priority2.offer(two2);
+		priority2.offer(two1);
+		priority2.offer(two2);
 
 		Queue<HotelRoom> priority1 = new PriorityQueue<HotelRoom>(
 				new Comparator<HotelRoom>() {

@@ -16,12 +16,7 @@ public class Strings_IntToRoman {
 				n -= A[i];
 			}
 		}
-		return sb.toString();}
-	static String append(int n,char M){
-		String res = "";
-		for(int i=0;i<n;i++){
-			res+=M;
-		}
-		return res;
+		return sb.toString();
 	}
+
 }

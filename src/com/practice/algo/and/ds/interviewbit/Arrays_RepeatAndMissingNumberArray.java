@@ -1,5 +1,6 @@
 package com.practice.algo.and.ds.interviewbit;
 
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -12,21 +13,21 @@ public class Arrays_RepeatAndMissingNumberArray {
 		Integer[] a = {4, 3, 2, 3};
 		Arrays_RepeatAndMissingNumberArray aa = new Arrays_RepeatAndMissingNumberArray();
 		List<Integer> al = Arrays.asList(a);
-		
+
 		System.out.println(aa.repeatedNumber2(al));
-		
+
 	}
 
-	
+
 	public ArrayList<Integer> repeatedNumber(final List<Integer> a) {
 		Collections.sort(a);
-		
+
 		Integer[] r = new Integer[2];
 		//1 2 3 3 5
 		//1 1 3 4 5
 		//1 1 2 4 5
 		for(int i=1;i<a.size();i++){
-			
+
 			int la = a.get(i);
 			int pla = a.get(i-1);
 			if((la-pla==0)){
@@ -50,8 +51,11 @@ public class Arrays_RepeatAndMissingNumberArray {
 		ArrayList<Integer> arrayList = new ArrayList<Integer>(Arrays.asList(r));
 		return arrayList;
 	}
+
+	//Awesome Soln
+	//Without Sorting
 	public ArrayList<Integer> repeatedNumber2(final List<Integer> a) {
-		
+
 		Integer[] r = new Integer[2];
 		//1 2 3 3 5
 		//1 1 3 4 5
@@ -73,5 +77,41 @@ public class Arrays_RepeatAndMissingNumberArray {
 		}
 		ArrayList<Integer> arrayList = new ArrayList<Integer>(Arrays.asList(r));
 		return arrayList;
+	}
+
+	//
+	public List<Integer> repeatedNumberNoMemory(final List<Integer> nums) {
+
+		int arraySize = nums.size();
+		BigInteger arrSum = BigInteger.ZERO;
+		BigInteger arrSumSq = BigInteger.ZERO;
+
+		BigInteger idxSum = BigInteger.ZERO;
+		BigInteger idxSumSq = BigInteger.ZERO;
+
+		for(int i = 0; i < arraySize; i++){
+			int num = nums.get(i);
+			arrSum = arrSum.add(BigInteger.valueOf(num));
+			arrSumSq = arrSumSq.add(BigInteger.valueOf(num).multiply(BigInteger.valueOf(num)));
+
+			BigInteger idxPos = BigInteger.valueOf(i).add(BigInteger.ONE);
+			idxSum = idxSum.add(idxPos);
+			idxSumSq = idxSumSq.add(idxPos.multiply(idxPos));
+		}
+
+		// sq(a) - sq(b) = (a+b)*(a-b)
+				// idxSumSq.subtract(arrSumSq) => sq(a) - sq(b)
+		BigInteger apb = idxSumSq.subtract(arrSumSq).divide(idxSum.subtract(arrSum));
+		BigInteger amb = idxSum.subtract(arrSum);
+
+
+		BigInteger b = apb.add(amb).divide(BigInteger.valueOf(2));
+		BigInteger a = apb.subtract(b);
+
+		List<Integer> res  = new ArrayList<>();
+		res.add(a.intValue());
+		res.add(b.intValue());
+
+		return res;
 	}
 }

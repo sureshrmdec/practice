@@ -1,8 +1,6 @@
 package com.practice.also.and.ds.implementation;
 
 import java.util.Scanner;
-import static java.lang.Math.*;
-
 
 
 /*Cat Snuke came up with some problems. He wants to construct as many problem sets as possible using those problems. Each problem set must contain exactly three problems: one for the Easy slot, one for the Medium slot, and one for the Hard slot. Each problem can only be assigned to a single slot in a single problem set. He came up with E + EM + M + MH + H problems in total. The distribution of the problems is as follows:

@@ -10,13 +10,14 @@ public class DP_DistinctSubsequence {
 
 	}
 
-	/*   a c a c c     r a b b b i t
-	 * a 1 1 2 2 2   r 1 1 1 1 1 1 1
-	 * c 0 1 1 3 5 	 a 0 1 1 1 1 1 1	if match charAt i and charAt j	
-	 *  			 b 0 0 1 2 3 3 3     	dp[i][j] = dp[i-1][j-1] 
-	 * 				 b 0 0 0 1 3 3 3		if(if match charAt j and charAt j-1)	
-	 * 				 i 0 0 0 0 0 3 3				dp[i][j] = dp[i][j-2]
-	 * 				 t 0 0 0 0 0 0 3
+	/*    0 a c a c c     r a b b b i t
+	 * 0  1 1 1 1 1 1   0 1 1 1 1 1 1 1
+	 * a  0 1 1 2 2 2   r 1 1 1 1 1 1 1
+	 * c  0 0 1 1 3 5 	a 0 1 1 1 1 1 1	if match charAt i and charAt j	
+	 *  	 			b 0 0 1 2 3 3 3     	dp[i][j] = dp[i-1][j-1] 
+	 * 				 	b 0 0 0 1 3 3 3		if(if match charAt j and charAt j-1)	
+	 * 				 	i 0 0 0 0 0 3 3				dp[i][j] = dp[i][j-2]
+	 * 				 	t 0 0 0 0 0 0 3
 	 * */
 	private int getDistinctSequences(String s, String t) {
 		// TODO Auto-generated method stub

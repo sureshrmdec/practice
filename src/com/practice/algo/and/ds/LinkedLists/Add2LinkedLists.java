@@ -1,5 +1,8 @@
 package com.practice.algo.and.ds.LinkedLists;
 
+
+//http://algorithms.tutorialhorizon.com/add-two-numbers-represented-by-a-linked-list-numbers-are-stored-in-forward-order/
+
 public class Add2LinkedLists {
 
 	/**
@@ -32,7 +35,7 @@ public class Add2LinkedLists {
 		// TODO Auto-generated method stub
 		int sum = 0;
 		int count = 0;
-		Node head = two.head;
+		Node<Integer> head = two.head;
 		while(head!=null){
 			head = head.next;
 			count++;
@@ -42,7 +45,7 @@ public class Add2LinkedLists {
 			start *=  10;
 		}
 		
-		Node current = two.head;
+		Node<Integer> current = two.head;
 		while(current!=null){
 			sum += start * current.val;
 			start =  start/10;

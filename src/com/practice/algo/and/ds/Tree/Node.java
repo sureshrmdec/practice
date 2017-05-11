@@ -2,11 +2,11 @@ package com.practice.algo.and.ds.Tree;
 
 public class Node {
 	
-	int iData; // data used as key value
-	Node leftChild; // this node’s left child
-	Node rightChild;
-	boolean isLeftChecked;
-	boolean isRightChecked;
+	public int iData; // data used as key value
+	public Node leftChild; // this nodeï¿½s left child
+	public Node rightChild;
+	public boolean isLeftChecked;
+	public boolean isRightChecked;
 
 	public Node(){
 		

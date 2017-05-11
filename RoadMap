@@ -32,7 +32,7 @@
     3. The Algorithm Design Manual
     4. Cormen
 5. SPOJ 150 Problems : Tags with Binary Search, Hashing, Queues, Bit Manipulation, Graphs
-6. Participating in Codechef   
+6. Design Patterns  
 7. Operating Systems Interview questions
 	1. operating systems (thread vs process, synchronization, deadlock etc), computer networks
 	   (IP packet, IP addressing, routing, TCP packet, protocol - sliding window, three way 
@@ -48,6 +48,7 @@
 	5. JOINS
 	6. B Trees Indexes,
 	7. SQL Interview Questions
+	8. Deleting Duplicate Rows
 9. Java
     1. Generics
     2. Threading
@@ -59,6 +60,22 @@
 	2. HDFS
 	3. Cassandra
 	4. Spark   
-    
+	
+11 Kafka
+12 Distributed Concepts
+	1. Consistent Hashing
+	2. Gossip
+	3. Scalable Cube
+	4. Sharding
+	5. LRU
+	6. Cache (Redis, MemCache)
+	7. Top K Searches
+	8. Leader Election
+	9. Distributed Queues
+	10. DHT is 
+		
+13. HTTPS and TCP   
+
+14 Oauth 
       
     

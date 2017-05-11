@@ -5,13 +5,15 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
+// This is a class I would revise...
 public class Arrays_MaxDistance {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		//Integer[] aa = {5,1 ,6 ,8, 19, 3 };
 		//Integer[] aa = {12,13,14,20,30,40,1,2,3,4,5,6,7,8,9,10};
-		Integer[] aa = {41,5,43,4,3,46,47,48,49,50,12,13,14,20,30,40};
+		Integer[] aa = {3, 5, 4, 2};
+//		Integer[] aa = {100 ,99 ,8 ,9, 10, 11, 12, 13, 14, 7};
 		ArrayList<Integer> in = new ArrayList<>(Arrays.asList(aa));
 		Arrays_MaxDistance o = new Arrays_MaxDistance();
 		System.out.println(o.maximumGap(in));

@@ -10,8 +10,8 @@ public class Arrays_AntiDiagonals {
 		// TODO Auto-generated method stub
 		Arrays_AntiDiagonals o = new Arrays_AntiDiagonals();
 		Integer[][] in = {{1 ,2 ,3},
-				{4 ,5 ,6},
-				{7 ,8 ,9}};
+						  {4 ,5 ,6},
+						  {7 ,8 ,9}};
 		ArrayList<ArrayList<Integer>> a  = new ArrayList<>();
 		for(int i=0;i<in.length;i++){
 			ArrayList<Integer> aa = new ArrayList<>(Arrays.asList(in[i]));

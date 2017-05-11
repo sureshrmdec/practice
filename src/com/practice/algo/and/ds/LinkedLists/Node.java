@@ -1,10 +1,11 @@
 package com.practice.algo.and.ds.LinkedLists;
 
-public class Node implements Comparable<Node>{
+public class Node<T> implements Comparable<Node>{
 
-	public int val;
+	public T val;
 	public Node next;
-	public Node(int val) {
+	public Node previous;
+	public Node(T val) {
 		super();
 		this.val = val;
 	}
@@ -27,6 +28,6 @@ public class Node implements Comparable<Node>{
 	@Override
 	public int hashCode() {
 		// TODO Auto-generated method stub
-		return this.val;
+		return this.val.hashCode();
 	}
 }

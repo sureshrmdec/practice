@@ -20,21 +20,16 @@ public class Strings_LongestCommonPrefix {
 	public String longestCommonPrefix(ArrayList<String> a) {
 
 		int i = 0;
-		boolean breaked = false;
+		outer:
 		for (i = 0; i < a.get(0).length();) {
-			if(breaked){
-				break;
-			}
+			
 			char c = a.get(0).charAt(i);
 			for (int j = 0; j < a.size(); j++) {
 				if (i>=a.get(j).length() ||a.get(j).charAt(i) != c) {
-					breaked = true;
-					break;
+					break outer;
 				}
 			}
-			if(!breaked)
-				i++;
-
+			i++;
 		}
 		return a.get(0).substring(0, i);
 	}

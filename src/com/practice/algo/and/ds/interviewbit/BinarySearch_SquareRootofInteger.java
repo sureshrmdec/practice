@@ -7,7 +7,7 @@ public class BinarySearch_SquareRootofInteger {
 	public static void main(String[] args) {
 		
 		BinarySearch_SquareRootofInteger o = new BinarySearch_SquareRootofInteger();
-		System.out.println(o.sqrt(16));
+		System.out.println(o.sqrt(35));
 
 	}
 	//1 - 1
@@ -26,10 +26,10 @@ public class BinarySearch_SquareRootofInteger {
 		while(l<=h){
 			
 			int mid = (l+h)/2;
-			if(l*l <a && h*h<a){
+			if(l*l <a && h*h<a){ // In case such as a=11
 				return h;
 			}
-			if(l*l >a && h*h>a){
+			if(l*l >a && h*h>a){ //In case such as a=35
 				return l-1;
 			}
 			if(mid*mid > a){

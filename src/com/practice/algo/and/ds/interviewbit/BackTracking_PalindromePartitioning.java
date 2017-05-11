@@ -6,7 +6,8 @@ import java.util.List;
 public class BackTracking_PalindromePartitioning {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		BackTracking_PalindromePartitioning o = new BackTracking_PalindromePartitioning();
+		System.out.println(o.partition("aaba"));
 
 	}
 		public boolean isPalindrome(String s) {
@@ -24,13 +25,13 @@ public class BackTracking_PalindromePartitioning {
 	}
 
 
-	public List<List<String>> partition(String s) {
+	public ArrayList<ArrayList<String>> partition(String s) {
 		int length = s.length();
 
-		List<List<String>> partitions = new ArrayList<>();
+		ArrayList<ArrayList<String>> partitions = new ArrayList<>();
 
 		if(isPalindrome(s)){
-			List<String> p = new ArrayList<>();
+			ArrayList<String> p = new ArrayList<>();
 			p.add(s);
 			partitions.add(p);
 		}
@@ -41,8 +42,8 @@ public class BackTracking_PalindromePartitioning {
 
 			// if s1 is palindrome then get partitions for s2, no need to check partitions of s1 as its alredy processed in previous iteration
 			if(isPalindrome(s1)){
-				List<List<String>> p2 = partition(s2);
-				for(List<String> p : p2){
+				ArrayList<ArrayList<String>> p2 = partition(s2);
+				for(ArrayList<String> p : p2){
 					// append s1 at beginning to all partitions returned for s2
 					p.add(0, s1);
 				}

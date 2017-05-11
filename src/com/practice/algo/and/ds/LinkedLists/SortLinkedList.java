@@ -28,7 +28,7 @@ public class SortLinkedList {
 		if (head == null || head.next == null)
 			return head;
 		
-		Node localHead = head;
+		Node<Integer> localHead = head;
 		//count
 		int count =0;
 		while(localHead!=null){
@@ -36,12 +36,12 @@ public class SortLinkedList {
 			localHead = localHead.next;
 		}
 		localHead = head;
-		Node list1Head = head;
+		Node<Integer> list1Head = head;
 		//find middle of the list
 		LinkedList list1 = new LinkedList(),list2 = new LinkedList();
 		list1.head = list1Head;  
 		int cou = 0;
-		Node previous = null;
+		Node<Integer> previous = null;
 		while(cou!=count/2){
 			previous = localHead;
 			localHead = localHead.next;
@@ -50,15 +50,15 @@ public class SortLinkedList {
 		list2.head = localHead;
 		previous.next = null;
 		
-		Node h1 = sortList(list1.head);
-		Node h2 = sortList(list2.head);
+		Node<Integer> h1 = sortList(list1.head);
+		Node<Integer> h2 = sortList(list2.head);
 		
-		Node merged = merge(h1,h2);
+		Node<Integer> merged = merge(h1,h2);
 		return merged;
 		
 	}
 
-	private Node merge(Node h1, Node h2) {
+	private Node merge(Node<Integer> h1, Node<Integer> h2) {
 		// TODO Auto-generated method stub
 		
 		Node fakeHead = new Node(100);

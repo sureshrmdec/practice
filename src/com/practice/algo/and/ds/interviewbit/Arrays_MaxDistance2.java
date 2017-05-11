@@ -1,6 +1,8 @@
 package com.practice.algo.and.ds.interviewbit;
 
 //solution from geeksforgeeks
+
+// See Arrays_MaxDistance ...Arrays_MaxDistance is the one which i ll revise
 public class Arrays_MaxDistance2 {
 
 	/* Utility Functions to get max and minimum of two integers */
@@ -57,7 +59,7 @@ public class Arrays_MaxDistance2 {
     public static void main(String[] args) 
     {
     	Arrays_MaxDistance2 max = new Arrays_MaxDistance2();
-        int arr[] = {41,5,43,4,3,46,47,48,49,50,12,13,14,20,30,40};
+        int arr[] = {100 ,99 ,8 ,9, 10, 11, 12, 13, 14, 7};
         int n = arr.length;
         int maxDiff = max.maxIndexDiff(arr, n);
         System.out.println(maxDiff);

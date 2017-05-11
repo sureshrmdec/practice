@@ -13,6 +13,7 @@ public class LeetCode_ProductAllExceptSelf {
 	public static int[] productExceptSelf(int[] nums) {
         int[] front = new int[nums.length];
         front[0] = nums[0];
+
         
 		for(int i=1;i<nums.length;i++){
         	front[i] = nums[i]*front[i-1]; 
