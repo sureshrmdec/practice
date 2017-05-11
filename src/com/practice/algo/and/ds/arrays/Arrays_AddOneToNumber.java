@@ -2,7 +2,6 @@ package com.practice.algo.and.ds.arrays;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.LinkedList;
 import java.util.List;
 
 // Also See question in package com.practice.algo.and.ds.interview.questions, class CareerCup_AddANumberToAnArray ;
@@ -15,7 +14,7 @@ public class Arrays_AddOneToNumber {
 		Arrays_AddOneToNumber s = new Arrays_AddOneToNumber();
 		Integer aa[] = { 0, 6, 0, 6, 4, 8, 8, 1};
 		List<Integer> a = Arrays.asList(aa);
-
+		System.out.println(s.plusOne2(a));
 		System.out.println(s.plusOne2(a));
 	}
 
