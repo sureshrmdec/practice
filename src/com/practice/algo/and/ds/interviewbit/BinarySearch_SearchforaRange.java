@@ -10,7 +10,7 @@ public class BinarySearch_SearchforaRange {
 		Integer[] in3 = {20,22,22,22,23,24,25};
 		ArrayList<Integer> a3 = new ArrayList<Integer>(Arrays.asList(in3));
 		BinarySearch_SearchforaRange p = new BinarySearch_SearchforaRange();
-		System.out.println(p.searchRange(a3, 21));
+		System.out.println(p.searchRange(a3, 22));
 
 	}
 	public ArrayList<Integer> searchRange(final List<Integer> a, int b) {

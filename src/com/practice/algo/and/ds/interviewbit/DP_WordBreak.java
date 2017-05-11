@@ -11,15 +11,23 @@ public class DP_WordBreak {
 	
 	public static void main(String[] args) {
 	
-		String s = "leetcode";
+		//String s = "leetcode";
 		Set<String> wordDict = new HashSet<String>();
-		wordDict.add("leet");
-		wordDict.add("code");
+		//wordDict.add("leet");
+		//wordDict.add("code");
+		
+		String s = "ilikesor";
+		wordDict.add("i");
+		wordDict.add("li");
+		wordDict.add("likes");
+		wordDict.add("likeso");
+		wordDict.add("kesor");
 		
 		DP_WordBreak o = new DP_WordBreak();
 		//o.wordBreak(s, wordDict);
 		//o.wordBreakDP("likesamsungmangogoicecreamicemobile");
-		hasValidWords("iicecream");
+		o.wordBreakLeetCodeDiscuss(s, wordDict);
+		hasValidWords("ilikesor");
 		
 	}
 	
@@ -128,7 +136,9 @@ public class DP_WordBreak {
 	}
 	
 	//http://www.ideserve.co.in/learn/word-break-problem
-	private static final Set<String> dictionary = new HashSet<String>(Arrays.asList("arrays" , "dynamic" , "heaps" , "IDeserve" , "learn" , "learning" , "linked" , "list" , "platform" , "programming" , "stacks" , "trees" ));
+	//private static final Set<String> dictionary = new HashSet<String>(Arrays.asList("arrays" , "dynamic" , "heaps" , "IDeserve" , "learn" , "learning" , "linked" , "list" , "platform" , "programming" , "stacks" , "trees" ));
+	private static final Set<String> dictionary = new HashSet<String>(Arrays.asList("i","li","like","sor"));
+	//private static final Set<String> dictionary = new HashSet<String>(Arrays.asList("i","li","likes","likeso","r"));
 	public static boolean hasValidWords(String words) {
 			        
 			         
@@ -142,7 +152,7 @@ public class DP_WordBreak {
 			            if (dictionary.contains(words.substring(0, i + 1))) {
 			                validWords[i] = true;
 			            }
-			            if (validWords[i] == true) {
+			            if (validWords[i]) {
 			                for (int j = i + 1; j < n; j++) {
 			                    if (dictionary.contains(words.substring(i + 1, j + 1))) {
 			                        validWords[j] = true;
@@ -155,5 +165,37 @@ public class DP_WordBreak {
 			        }
 			        return false;
 			    }
+	
+
+	//I will go with this one
+	public boolean wordBreakLeetCodeDiscuss(String s, Set<String> dictionary) {
+
+        boolean[] dp = new boolean[s.length()+1];
+        dp[0] = true;
+        
+        // i denote length of string, dp[i] = true implies string of length i (from beginning) is valid
+        for (int i = 1; i <= s.length(); i++) {
+            for (int j = i-1; j >= 0; j--) {
+                // start from end and check if string till length j is valid && substring from j+1 length to i is valid 
+                /* example 
+                     to find dp[5] check (all numbers in terms of length, not index)  
+                            - or 1-4 is valid and 5 contains in dictionary  
+                            - or 1-3 is valid and 4-5 contains in dictionary
+                            - or 1-2 is valid and 3-5 contains in dictionary
+                            - or 1 is valid and 2-5 contains in dictionary
+                            - or if 1-5 contains in dictionary
+                            
+                            break on first true condition and set dp[5] = true
+                            
+                */
+                if(dp[j] && dictionary.contains(s.substring(j, i))){
+                    dp[i] = true;
+                    break;
+                }
+            }
+        }
+
+        return dp[s.length()];
+    }
 
 }

@@ -7,7 +7,7 @@ import java.util.LinkedList;
 public class DP_JumpGameArray {
 	public static void main(String[] args) {
 		DP_JumpGameArray o = new DP_JumpGameArray();
-		Integer[] aa = {1,0,2};
+		Integer[] aa = {3,3,0,2,1,2,2};
 		ArrayList<Integer> a = new ArrayList<>(Arrays.asList(aa));
 		System.out.println(o.canJumpF(a));
 	}
@@ -55,6 +55,7 @@ public class DP_JumpGameArray {
 			reach = Math.max(reach, a.get(i) + i);
 		}
 
+		//if can not reach
 		if (reach < a.size() - 1)
 			return 0;
 

@@ -5,7 +5,7 @@ public class Strings_CountAndSay {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		Strings_CountAndSay f = new Strings_CountAndSay();
-		System.out.println(f.countAndSay(7));
+		System.out.println(f.countAndSay(4));
 
 	}
 	public String countAndSay(int a) {

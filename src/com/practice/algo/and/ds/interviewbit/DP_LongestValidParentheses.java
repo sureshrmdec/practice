@@ -7,12 +7,8 @@ public class DP_LongestValidParentheses {
 
 		String s = "()((()))";
 		System.out.println(longestValidParentheses(s));
-		boolean a=true;
-		boolean b = false;
-		 System.out.println((a|b)&(a^a));
-		 System.out.println((a|b&a)^a);
-		 System.out.println(a|(b&a^a));
-		 System.out.println(a|(b&a)^a);
+
+
 	}
 	public static  int longestValidParentheses(String s) {
 		if(s.isEmpty() || s.length()<2){

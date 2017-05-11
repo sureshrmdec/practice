@@ -49,8 +49,6 @@ public class Graphs_SmallestMultipleOf0and1 {
         if (num > 0) {
             // An array to mark all the visited nodes
             boolean[] isVisited = new boolean[num];
-            Arrays.fill(isVisited, false);
-
             // The queue used by BFS
             Queue<Node> queue = new ArrayDeque<>();
 

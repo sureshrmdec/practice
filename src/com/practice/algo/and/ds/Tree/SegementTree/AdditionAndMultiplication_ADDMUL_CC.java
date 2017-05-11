@@ -141,7 +141,7 @@ public class AdditionAndMultiplication_ADDMUL_CC {
 	static int Query(int s,int e,int i,int j,int node)
 	{
 		if( j<s || e<i )	return 0;
-		if( i<=s  && e<=j )	return nodes[node].sum ;
+		if( i<=s  && e<=j )	return nodes[node].sum ; //if current node interval is totally with in the search range
 		lazy(node);
 		return (Query(s,(s+e)/2, i, j, node*2) + Query((s+e)/2+1,e, i,j, node*2+1))%mod;	
 	}

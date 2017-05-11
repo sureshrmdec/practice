@@ -26,62 +26,34 @@ public class Arrays_MergeOverlappingIntervals {
 		System.out.println(dd.merge(intervals));
 
 	}
-	public ArrayList<Interval> merge(ArrayList<Interval> intervals) {
-		Collections.sort(intervals, new Comparator<Interval>(){
-
-			@Override
-			public int compare(Interval o1, Interval o2) {
-				if(o1.start > o2.start){
-					return 1;
-				}else if(o1.start < o2.start){
-					return -1;
-				}
-				return 0;
-			}
-			
-		});
-		ArrayList<Interval> res = new ArrayList<>();
-		Stack<Interval> stack = new Stack<>();
-		Interval ciz = intervals.get(0);
-		stack.push(ciz);
-		for(int i=1;i<intervals.size();i++){
-			boolean merged = false;
-			Interval ci = stack.pop();
-			Interval ni = intervals.get(i);
-			if(    	//   a----------------b       ci
-					//               c---------d  ni
-					ci.end >= ni.start && ci.end <= ni.end){
-				 stack.push(new Interval(ci.start,ni.end));
-				 merged = true;
-			}
-							//         a----------------b
-							//     c---------d
-			else if	(ci.start >= ni.start && ci.start <= ni.end){
-				stack.push(new Interval(ni.start,ci.end));
-				merged = true;
-			}
-					//       a------b
-					//     c-----------d
-			else if (ci.start>=ni.start && ci.start<=ni.end || ci.end>=ni.start && ci.end <= ni.end ){
-				stack.push(new Interval(ni.start,ni.end));
-				merged = true;
-			}
-			//if cd is in ab
-			//  a----------------b
-			//     c---------d
-			else if(ni.start>=ci.start && ni.start<=ci.end && ni.end>=ci.start && ni.end<=ci.end){
-				stack.push(new Interval(ci.start,ci.end));
-				merged = true;
-			}
-			if(!merged){
-				stack.push(ci);
-				stack.push(ni);
-			}
-			
-		}
-		res.addAll(stack);
-		return res;
+	
+	public static ArrayList<Interval> merge(ArrayList<Interval> intervals) {
+        ArrayList<Interval> res = new ArrayList<>();
+        
+        if(intervals.isEmpty())
+            return res;
+        
+        Comparator<Interval> comparator = (i1, i2) -> new Integer(i1.start).compareTo(new Integer(i2.start));
+        Collections.sort(intervals, comparator);
+        
+        res.add(intervals.get(0));
+        
+        for (int i = 1; i < intervals.size(); i++) {
+            Interval pi = res.get(res.size()-1);
+            Interval ci = intervals.get(i);
+            
+            if(ci.start <= pi.end){
+                pi.start = Math.min(pi.start, ci.start);
+                pi.end = Math.max(pi.end, ci.end);
+            } else{
+                res.add(ci);
+            }
+        }
+        
+        return res;
     }
+	
+	
 	  class Interval {
 	      int start;
 	      int end;

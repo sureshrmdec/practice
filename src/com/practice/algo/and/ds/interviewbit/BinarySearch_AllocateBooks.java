@@ -12,8 +12,8 @@ public class BinarySearch_AllocateBooks {
 
 		/*int b= 12;
 		Integer[] c = {31, 14, 19, 75};*/
-		int b= 1;
-		Integer[] c = {12, 34, 67, 90};
+		int b= 3;
+		Integer[] c = {2, 5, 10, 5, 4, 15};
 		//{97, 26, 12, 67, 10, 33, 79, 49, 79, 21, 67, 72, 93, 36, 85, 45, 28, 91, 94, 57, 1, 53, 8, 44, 68, 90, 24};
 		//{12, 34, 67, 90}
 		ArrayList<Integer> a = new ArrayList<>(Arrays.asList(c));
@@ -60,22 +60,20 @@ public class BinarySearch_AllocateBooks {
 				return true;
 			}
 			if(currentSum>=t && a>0){
+				//i++ because we have to start the sum again as currentSum>=t (we are checking for t here),therefore resetting currentSum=0 too.
+				//We are trying that for any student we can assign atleast t pages to any student.
+				//if yes...retuen true...that means t can be assigned to any of the studnt and a becomes 0.
 				i++;
 				//currentSum = c.get(i);
 				currentSum = 0;
 				a--;
 			}
-
-			
-			
 		}
 		if(a>0)
-			return false;
+			return false; //we could not assign t pages to any of the student
 		if(i>=0 && a<1){
 			return true;
 		}
-		
-		
 		return true;
 	}
 }

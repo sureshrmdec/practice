@@ -9,29 +9,14 @@ public class BinarySearch_SortedInsertPosition {
 		Integer[] in3 = {1,3,5,6};
 		ArrayList<Integer> a3 = new ArrayList<Integer>(Arrays.asList(in3));
 		BinarySearch_SortedInsertPosition p = new BinarySearch_SortedInsertPosition();
-		System.out.println(p.searchInsert(a3,0));
+		System.out.println(p.searchInsert(a3,4));
 
 
 	}
 	public int searchInsert(ArrayList<Integer> a, int b) {
-	
+
 		int l=0;
 		int h=a.size()-1;
-		while(l<=h){
-			int lv = a.get(l);
-			int hv = a.get(h);
-			int mid = (l+h)/2;
-			int val = a.get(mid);
-			if(val<b){
-				l = mid+1;
-			}else if(val>b){
-				h=mid-1;
-			}else{
-				return mid;
-			}
-		}
-		l=0;
-		h=a.size()-1;
 		while(l<=h){
 			int lv = a.get(l);
 			int hv = a.get(h);
@@ -43,6 +28,8 @@ public class BinarySearch_SortedInsertPosition {
 			}
 			int mid = (l+h)/2;
 			int val = a.get(mid);
+			if(val==b)
+				return mid;
 			if(val<b){
 				l = mid+1;
 			}else if(val>b){

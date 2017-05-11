@@ -17,14 +17,16 @@ public class DP_EditDistance {
 		if(b.trim().isEmpty()){
 			return a.length();
 		}
+		//we have to insert i characters to make empty string [0] to make string of length [i]
 		for(int i=0;i<=b.length();i++){
 			dp[0][i] = i;
-			
 		}
+		//we have to delete i characters to make string of length [i] to make empty string [0]
 		for(int i=0;i<=a.length();i++){
 			dp[i][0] = i;
 			
 		}
+		
 		for(int i=1;i<=a.length();i++){
 			for(int j=1;j<=b.length();j++){
 				if(a.charAt(i-1)==b.charAt(j-1)){

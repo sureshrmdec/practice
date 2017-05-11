@@ -25,7 +25,7 @@ public class DP_RegularExpressionII {
         for (int j = 1; j <= regex.length(); j++) {
             char c = regex.charAt(j - 1);
             if (c == '*') {
-                dp[0][j] = dp[0][j-1] || dp[0][j-2];
+                dp[0][j] = dp[0][j-2];
             }
         }
 

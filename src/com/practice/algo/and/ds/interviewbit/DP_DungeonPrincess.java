@@ -5,7 +5,9 @@ public class DP_DungeonPrincess {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
-		int[][] dungeon = {{-2,-3,3},{-5,-10,1},{10,30,-5}};
+		int[][] dungeon = {{-2,-3,3},
+						   {-5,-10,1},
+						   {10,30,-5}};
 		DP_DungeonPrincess o = new DP_DungeonPrincess();
 		o.calculateMinimumHP(dungeon);
 	}
@@ -38,5 +40,6 @@ public class DP_DungeonPrincess {
 			}
 		}
 
-		return h[0][0];}
+		return h[0][0];
+	}
 }

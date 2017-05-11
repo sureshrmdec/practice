@@ -29,7 +29,7 @@ public class LinkedList {
 		linkedList.reverselist(linkedList.head);
 	}
 
-	public Node head;
+	public Node<Integer> head;
 	
 	public void insert(Node node){
 	
@@ -92,7 +92,7 @@ public class LinkedList {
 	
 	public void search(int val){
 		
-		Node localHead = head;
+		Node<Integer> localHead = head;
 		while(localHead!=null && localHead.val != val){
 			localHead = localHead.next;
 		}

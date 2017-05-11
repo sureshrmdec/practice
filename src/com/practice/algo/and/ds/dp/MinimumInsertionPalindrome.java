@@ -8,9 +8,9 @@ public class MinimumInsertionPalindrome {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
-		String str = "abcde";
+		String str = "abcddc";
 		MinimumInsertionPalindrome m = new MinimumInsertionPalindrome();
-		m.findMinInsertion(str);
+		System.out.println(m.findMinInsertion(str));
 	}
 
 	private int findMinInsertion(String str) {
@@ -22,8 +22,8 @@ public class MinimumInsertionPalindrome {
 				if(str.charAt(i)==str.charAt(i+gap)){
 					dp[i][i+gap] =  dp[i+1][gap-1];	
 				}else{
-					dp[i][i+gap] = Math.min(dp[i][gap-1], 
-							dp[i+1][gap])+1;
+					dp[i][i+gap] = Math.min(dp[i][i+gap-1], 
+							dp[i+1][i+gap])+1;
 				}
 				
 			}

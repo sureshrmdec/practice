@@ -1,64 +1,51 @@
 package com.practice.algo.and.ds.interviewbit;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class DP_MaxProductSubArray {
+public class DP_MaxProductSubarray {
 
 	public static void main(String[] args) {
+		//Integer[] numsA = {0, 0, 2, 0, 0};
+		//Integer[] numsA = {2,3,-2,4};
+		//Integer[] numsA = {-4, 0, -5, 0};
+		//Integer[] numsA = {0, -2, -3, -3, 0};
+		Integer[] numsA = {2,-3,-3,0,5,2,-8};
+		List<Integer> nums = Arrays.asList(numsA);
+		DP_MaxProductSubarray  o = new DP_MaxProductSubarray();
+		System.out.println(o.maxProduct(nums));
 
-		DP_MaxProductSubArray o = new DP_MaxProductSubArray();
-		Integer[] a = {2,0,-3,3,3};
-		Integer[] a2 = {2, 3,-2,4,-5};
-		
-		//System.out.println(o.getMaxProduct(a));
-		//ArrayList<Integer> al = new ArrayList<Integer>(Arrays.asList(a));
-		System.out.println(o.maxProduct(a));
-	}
-
-	public int maxProduct(Integer[] nums) {
-	    int[] max = new int[nums.length];
-	    int[] min = new int[nums.length];
-	 
-	    max[0] = min[0] = nums[0];
-	    int result = nums[0];
-	 
-	    for(int i=1; i<nums.length; i++){
-	        if(nums[i]>0){
-	            max[i]=Math.max(nums[i], max[i-1]*nums[i]);
-	            min[i]=Math.min(nums[i], min[i-1]*nums[i]);
-	        }else{
-	            max[i]=Math.max(nums[i], min[i-1]*nums[i]);
-	            min[i]=Math.min(nums[i], max[i-1]*nums[i]);
-	        }
-	 
-	        result = Math.max(result, max[i]);
-	    }
-	 
-	    return result;
 	}
 	
-	public int maxProduct(final List<Integer> nums) {
-	    int[] max = new int[nums.size()];
-	    int[] min = new int[nums.size()];
-	 
-	    max[0] = min[0] = nums.get(0);
-	    int result = nums.get(0);
-	 
-	    for(int i=1; i<nums.size(); i++){
-	        if(nums.get(i)>0){
-	            max[i]=Math.max(nums.get(i), max[i-1]*nums.get(i));
-	            min[i]=Math.min(nums.get(i), min[i-1]*nums.get(i));
-	        }else{
-	            max[i]=Math.max(nums.get(i), min[i-1]*nums.get(i));
-	            min[i]=Math.min(nums.get(i), max[i-1]*nums.get(i));
-	        }
-	 
-	        result = Math.max(result, max[i]);
-	    }
-	 
-	    return result;
-	}
+/*	You have three choices to make at any position in array.
+	1. You can get maximum product by multiplying the current element with 
+	    maximum product calculated so far.  (might work when current 
+	    element is positive).
+	2. You can get maximum product by multiplying the current element with 
+	    minimum product calculated so far. (might work when current 
+	    element is negative).
+	3.  Current element might be a starting position for maximum product sub
+	     array
 
+
+	https://www.quora.com/How-do-I-solve-maximum-product-subarray-problems
+*/
+	public int maxProduct(final List<Integer> nums) {
+		
+		int currentmax = nums.get(0);
+		int previousPositive = nums.get(0);
+		int previousNegative = nums.get(0);
+		
+		for(int i=1;i<nums.size();i++){
+			int currNum = nums.get(i);
+			int currentPositive = Math.max(previousPositive*currNum, Math.max(currNum,previousNegative*currNum));
+			int currentNegative = Math.min(previousPositive*currNum, Math.min(currNum,previousNegative*currNum));
+			currentmax = Math.max(currentmax, currentPositive);
+			previousNegative = currentNegative;
+			previousPositive = currentPositive;
+			
+		}
+		return currentmax;
+		
+	}
 }

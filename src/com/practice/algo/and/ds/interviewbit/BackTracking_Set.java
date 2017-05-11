@@ -1,5 +1,7 @@
 package com.practice.algo.and.ds.interviewbit;
 
+
+//https://discuss.leetcode.com/topic/46159/a-general-approach-to-backtracking-questions-in-java-subsets-permutations-combination-sum-palindrome-partitioning/2
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -13,57 +15,26 @@ public class BackTracking_Set {
 		numsL.add(1);
 		numsL.add(2);
 		numsL.add(3);
-		numsL.add(4);
+		//numsL.add(3);
 		BackTracking_Set o = new BackTracking_Set();
-		
+
 		System.out.println(o.subsets(numsL));
 	}
-	 //public static List<List<Integer>> subsets(int[] nums) {
-	 public ArrayList<ArrayList<Integer>> subsets(ArrayList<Integer> nums) {
-		 ArrayList<ArrayList<Integer>> list = new ArrayList<>();
-		 if(nums.isEmpty()){
-			 list.add(nums);
-			 return list;
-		 }
-		 
-		 Collections.sort(nums);
-		 list = getSubSets(nums, 0);
-		 
-				ArrayList<Integer> al = new ArrayList<>();
-				list.add(0,al);
-			
-	     return list;
-	 }
-	private static ArrayList<ArrayList<Integer>> getSubSets(ArrayList<Integer> nums,Integer curr) {
-		ArrayList<ArrayList<Integer>> subSet = new ArrayList<>();
-		
-		if(curr==nums.size()-1){
-			ArrayList<Integer> single = new ArrayList<>();
-			single.add(nums.get(curr));
-			subSet.add(single);
-			return subSet;
+
+    public List<List<Integer>> subsets(ArrayList<Integer> nums) {
+    	List<List<Integer>> result = new ArrayList<>();
+    	Collections.sort(nums);
+    	subsetsHelper(nums,result,0, new ArrayList<>());
+    	return result;
+    }
+	private void subsetsHelper(ArrayList<Integer> nums, List<List<Integer>> result, int start, ArrayList<Integer> tempList) {
+		result.add(new ArrayList<>(tempList));
+		for(int i=start;i<nums.size();i++){
+			tempList.add(nums.get(i));
+			subsetsHelper(nums,result,i+1,tempList);
+			tempList.remove(tempList.size()-1);
 		}
 		
-
-		
-			int first = nums.get(curr);
-			ArrayList<Integer> single = new ArrayList<>();
-			single.add(first);
-			subSet.add(single);
-			
-			ArrayList<ArrayList<Integer>>  subSetForRemaining = getSubSets(nums, curr+1);
-			
-			for(List<Integer> l: subSetForRemaining){
-				ArrayList<Integer> al = new ArrayList<>(l);
-				al.add(0, first);
-				subSet.add(al);
-				
-			}
-			
-			subSet.addAll(subSetForRemaining);
-			
-		
-		
-		return subSet;
 	}
+
 }

@@ -70,7 +70,8 @@ public class RateFinder {
 						//dp[i][j] = (ri.price>withoutCurrentOccupancy.price)?withoutCurrentOccupancy:ri;
 						dp[i][j] = (ri.price>withoutCurrentOccupancy.price)?previos:ri;
 					}else{
-						RoomInformation haveToUsePreviousRoomsForRemaining = dp[i-1][j-i];
+						
+						RoomInformation haveToUsePreviousRoomsForRemaining = dp[i-1][j-i*currentUsedRommOfThatOccupancy];
 						Map<Integer,Integer> roomsUsed = new HashMap<Integer, Integer>();
 						roomsUsed.putAll(haveToUsePreviousRoomsForRemaining.roomsUsed);
 						int oldOccupied = roomsUsed.get(i)!=null?roomsUsed.get(i):0;

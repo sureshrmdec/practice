@@ -8,11 +8,11 @@ public class BackTracking_Parentheses {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		BackTracking_Parentheses o = new BackTracking_Parentheses();
-		o.generateParenthesis(4);
+		System.out.println(o.generateParenthesis(3));
 	}
 
-	public List<String> generateParenthesis(int n) {
-        List<String> list = new ArrayList<String>();
+	public ArrayList<String> generateParenthesis(int n) {
+		ArrayList<String> list = new ArrayList<String>();
         backtrack(list, "", 0, 0, n);
         return list;
     }

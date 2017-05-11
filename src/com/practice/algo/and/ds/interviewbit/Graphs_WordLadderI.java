@@ -23,20 +23,22 @@ public class Graphs_WordLadderI {
 	}
 	
 	public int ladderLength(String beginWord, String endWord, Set<String> wordDict) {
-		List<List<String>> res = new ArrayList<>();
-		int step = Integer.MAX_VALUE;
+	    int step = Integer.MAX_VALUE;
 		LinkedList<WordNode> queue = new LinkedList<WordNode>();
 		queue.add(new WordNode(beginWord, 1));
 
 		wordDict.add(endWord);
+		
 		while(!queue.isEmpty()){
 			WordNode top = queue.remove();
 			String word = top.word;
+			int currNumSteps = top.numSteps;
 
 			if(word.equals(endWord)){
 					step = top.numSteps;
 					return step;
 			}
+			
 			char[] arr = word.toCharArray();
 			for(int i=0; i<arr.length; i++){
 				for(char c='a'; c<='z'; c++){
@@ -48,7 +50,7 @@ public class Graphs_WordLadderI {
 					String newWord = new String(arr);
 					if(wordDict.contains(newWord)){
 						queue.add(new WordNode(newWord, top.numSteps+1));
-						wordDict.remove(newWord);
+						wordDict.remove(newWord);//This is imp step
 					}
 
 					arr[i]=temp;
@@ -56,11 +58,12 @@ public class Graphs_WordLadderI {
 			}
 		}
 		return 0;
+	
 	} 
 	class WordNode{
 		String word;
 		int numSteps;
-		
+		WordNode parent;
 		public WordNode(String word, int numSteps){
 			this.word = word;
 			this.numSteps = numSteps;

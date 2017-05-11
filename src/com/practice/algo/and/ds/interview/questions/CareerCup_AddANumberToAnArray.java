@@ -10,7 +10,7 @@ public class CareerCup_AddANumberToAnArray {
 
 
 		Integer[] a = {9, 9, 2};
-		int g = 3;
+		int g = 385;
 		List<Integer> list = new ArrayList<>();
 		for (int i = a.length -1 ; i >= 0; i--) {
 			g = a[i] + g;

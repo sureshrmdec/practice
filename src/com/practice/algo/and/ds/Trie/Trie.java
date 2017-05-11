@@ -48,25 +48,8 @@ public class Trie {
         return false;
     }
 
-    public boolean search2(String word)
-    {
-    	int offset = 0;
-        TrieNode current = root;  
-        for (char ch : word.toCharArray() )
-        {
-            if (current.subNode(ch) == null){
-            	offset++;
-            	current = current.childList.get(0);
-            	if(offset>1)
-                  return false;
-            }
-            else
-                current = current.subNode(ch);
-        }      
-        if (current.isEnd == true) 
-            return true;
-        return false;
-    }
+    int offset = 0;
+   
     
     /* Function to remove a word */
 
@@ -128,7 +111,7 @@ public class Trie {
                 break;                         
             case 3 : 
                 System.out.println("Enter string element to search");
-                System.out.println("Search result : "+ t.search2( scan.next() ));
+                System.out.println("Search result : "+ t.search( scan.next() ));
                 break;                                          
             default : 
                 System.out.println("Wrong Entry \n ");
@@ -143,7 +126,7 @@ public class Trie {
 	{
 		char content;
 		boolean isEnd;
-		int count;
+		int count;//how many words have that prefix
 		LinkedList<TrieNode> childList;
 
 		public TrieNode(char c)

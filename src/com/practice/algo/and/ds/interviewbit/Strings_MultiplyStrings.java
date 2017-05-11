@@ -1,44 +1,46 @@
 package com.practice.algo.and.ds.interviewbit;
 
-import java.math.BigInteger;
 
 public class Strings_MultiplyStrings {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		Strings_MultiplyStrings o = new Strings_MultiplyStrings();
-		System.out.println(o.multiply("31243242535342", "0"));
+		System.out.println(o.multiplyLeetCode("232", "152"));
 	}
-	public String multiply(String a, String b) {
-		StringBuilder res = new StringBuilder();
-		int la = a.length();
-		BigInteger ia = BigInteger.ZERO;
-		BigInteger ten = BigInteger.TEN;
-		int i,j;
-		for(i=a.length()-1,j=0;i>=0 && j<a.length();i--,j++){
-			int ch = a.charAt(j)-'0';
-			ia = ia.add(BigInteger.valueOf(ch).multiply( (ten.pow(i))));
-		}
-		i=0;j=0;
-		BigInteger ib = BigInteger.ZERO;
-		for(i=b.length()-1,j=0;i>=0 && j<b.length();i--,j++){
-			int ch = b.charAt(j)-'0';
-			ib = ib.add(BigInteger.valueOf(ch).multiply( (ten.pow(i))));
-		}
-		BigInteger r = ia.multiply(ib);
-		BigInteger s = BigInteger.ONE;
-		int rem=0;
-		while(r.compareTo(BigInteger.ONE)>=0){
-		BigInteger d =	r.divide(BigInteger.TEN);
-		rem =	r.remainder(BigInteger.TEN).divide(s).intValue();
-		
-		
-		res = res.append(rem);
-		s.multiply(BigInteger.TEN);
-		r = d;
-			
-		}
-		res.reverse();
-		return res.length()>0?res.toString():"0";
+	
+
+	//http://www.programcreek.com/2014/05/leetcode-multiply-strings-java/
+	public String multiplyLeetCode(String num1, String num2) {
+	    String n1 = new StringBuilder(num1).reverse().toString();
+	    String n2 = new StringBuilder(num2).reverse().toString();
+	 
+	    int[] d = new int[num1.length()+num2.length()];
+	 
+	    //multiply each digit and sum at the corresponding positions
+	    for(int i=0; i<n1.length(); i++){
+	        for(int j=0; j<n2.length(); j++){
+	            d[i+j] += (n1.charAt(i)-'0') * (n2.charAt(j)-'0');
+	        }
+	    }
+	 
+	    StringBuilder sb = new StringBuilder();
+	 
+	    //calculate each digit
+	    for(int i=0; i<d.length; i++){
+	        int mod = d[i]%10;
+	        int carry = d[i]/10;
+	        if(i+1<d.length){
+	            d[i+1] += carry;
+	        }
+	        sb.insert(0, mod);
+	    }
+	 
+	    //remove front 0's
+	    while(sb.charAt(0) == '0' && sb.length()> 1){
+	        sb.deleteCharAt(0);
+	    }
+	 
+	    return sb.toString();
 	}
 }

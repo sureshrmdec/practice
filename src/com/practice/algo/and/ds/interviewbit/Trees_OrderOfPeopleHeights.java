@@ -77,9 +77,13 @@ public class Trees_OrderOfPeopleHeights {
 	}
 
 	public static void main(String[] args) {
-		int[] heights = {5, 3, 2, 6, 1, 4};
-		int[] frontCounts = {0, 3, 2, 0, 4, 2};
 
+		//int[] heights = {5, 3, 2, 6, 1, 4};
+		//int[] frontCounts = {0, 3, 2, 0, 4, 2};
+		int[] heights = 	{5, 3, 2, 6, 1, 4};
+		int[] frontCounts = {0, 1, 2, 0, 3, 2};
+		//int[] heights = {7,7,6,5,5,4};
+		//int[] frontCounts = {0,1,1,0,2,4};
 		arrange(heights, frontCounts);
 		System.out.println();
 	}

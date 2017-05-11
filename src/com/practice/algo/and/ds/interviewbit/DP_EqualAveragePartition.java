@@ -1,10 +1,14 @@
 package com.practice.algo.and.ds.interviewbit;
 
+import java.util.Arrays;
+
 public class DP_EqualAveragePartition {
 
 	public static void main(String[] args) {
 		  //int [] A = {2, 4, 4, 5, 6, 6, 7, 8, 9, 12};
-		int [] A = {2,6,3,4,3,2,1};
+		//int [] A = {2,6,3,4,3,2,1};
+		int [] A = {47, 14, 30, 19, 30, 4, 32, 32, 15, 2, 6, 24};
+		Arrays.sort(A);
 		  partitionEqualAvg(A);
 		 }
 		  

@@ -1,7 +1,10 @@
 package com.practice.algo.and.ds.interviewbit;
 
+import java.math.BigInteger;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class BackTracking_KthPermutationSequence {
 
@@ -9,11 +12,15 @@ public class BackTracking_KthPermutationSequence {
 		// TODO Auto-generated method stub
 
 		BackTracking_KthPermutationSequence o = new BackTracking_KthPermutationSequence();
-		System.out.println(o.getPermutation(4, 2));
+		System.out.println(o.getPermutation(4 ,14));
 	}
 	 
+
+	static Map<Integer, BigInteger> factorial = new HashMap<>();
+	
 	public String getPermutation(int n, int k) {
-		int[] factorial = {1,2,6,24,120,720,5040,40320,362880};
+		BigInteger kk = BigInteger.valueOf(k);
+		populateMap(n);	
 		List<Integer> list = new ArrayList<>();
 		for(int i=0;i<n;i++){
 			list.add(i+1);
@@ -21,12 +28,12 @@ public class BackTracking_KthPermutationSequence {
 		String str = "";
 		int nn = n;
 		for(int i=0;i<n;i++){
-			int f = factorial[nn-1];
-			int singleSize= f/list.size();
-			int index = getNext(k,list,singleSize);
+			BigInteger f = factorial.get(nn);
+			BigInteger singleSize= f.divide(BigInteger.valueOf(list.size())); //singleSize is how many permutations get started for each number as a start
+			int index = getNext(kk,list,singleSize);
 			str+=list.get(index);
 			list.remove(index);
-			k = k - (singleSize*(index));
+			kk = kk.subtract(singleSize.multiply(BigInteger.valueOf(index))); //subtract how many we can eliminate
 			if(k==1){
 				for(Integer s:list){
 					str+=s;
@@ -38,16 +45,25 @@ public class BackTracking_KthPermutationSequence {
 		return str;
 	}
 
-	private int getNext(int k, List<Integer> list,int minSize) {
+	private int getNext(BigInteger k, List<Integer> list,BigInteger minSize) {
 		// TODO Auto-generated method stub
 		int index = 0;
-		int s = 0;
-		while(s<k){
-			s+=minSize;
+		BigInteger s = BigInteger.ZERO;
+		while(s.compareTo(k)<0){
+			//s+=minSize;
+			s = s.add(minSize);
 			index++;
 		}
 	
 		return index-1;
 	}
+	public static void populateMap(int n){
+        Integer i = 1;
+        factorial.put(0,BigInteger.ONE);
+        while(i <= n){
+        	factorial.put(i, (factorial.get(i-1).multiply(BigInteger.valueOf(i))));
+            i++;
+        }
+    }
 
 }
