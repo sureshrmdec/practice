@@ -3,7 +3,7 @@ package com.practice.algo.and.ds.interviewbit;
 import java.util.Arrays;
 import java.util.List;
 
-public class DP_MaxProductSubarray {
+class DP_MaxProductSubarray {
 
 	public static void main(String[] args) {
 		//Integer[] numsA = {0, 0, 2, 0, 0};

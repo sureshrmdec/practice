@@ -15,7 +15,6 @@ public class Arrays_AddOneToNumber {
 		Integer aa[] = { 0, 6, 0, 6, 4, 8, 8, 1};
 		List<Integer> a = Arrays.asList(aa);
 		System.out.println(s.plusOne2(a));
-		System.out.println(s.plusOne2(a));
 	}
 
 	
